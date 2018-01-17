@@ -1,0 +1,14 @@
+admin
+investors
+
+
+
+Admin adds/removes properties to website indicating if they should be shown on the homepage or be unlisted (including uploading images)
+Users submit a webform asking for access to unlisted properties
+Admin approves/declines requests
+Users can then login to see unlisted properties.
+
+
+Future upgrades:
+Users can save properties to a cart and send to admin.
+Admin can record interactions with investors

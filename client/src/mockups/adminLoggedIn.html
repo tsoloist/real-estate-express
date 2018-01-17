@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		label, input, select, button {
+			display: block;
+			margin-bottom: 20px;
+		}
+		label[for='featured'], input[type='checkbox'] {
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<h1>Create New Property</h1>
+		<form>
+			<label for="address">Address</label>
+			<input id="address" type="text" />
+
+			<label for="city">City</label>
+			<input id="city" type="text" name="city" />
+
+			<label for="state">State</label>
+			<input id="state" type="text" name="state" placeholder="Georgia" />
+
+			<label for="beds">Number of Bedrooms</label>
+			<input id="beds" type="text" name="beds" />
+
+			<label for="baths">Number of Baths</label>
+			<input id="baths" type="text" name="baths" />
+
+			<label for="upload">Upload Image</label>
+			<input id="upload" type="file" name="upload" />
+
+			<label for="featured">Show on Homepage</label>
+			<input id="featured" type="checkbox" name="featured" />
+
+			<button type="submit" value="addToPage">Add to Display Page</button>
+		</form>
+	</form>
+</body>
+</html>

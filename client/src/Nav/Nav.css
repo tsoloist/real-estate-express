@@ -1,0 +1,36 @@
+.Nav {
+	width: 61%;
+	margin: auto;
+	position: relative;
+	padding-top: 20px;
+	z-index: 100;
+}
+.Nav img {
+	width: 25%;
+}
+.Nav a {
+	display: inline-block;
+}
+.Nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	display: inline-block;
+}
+.Nav li {
+	display: inline-block;
+	margin-left: 27px;
+}
+.Nav li:first-child {
+	margin-left: none;
+}
+.Nav .login {
+	margin-left: 95px;
+}
+
+.Nav li a {
+	text-decoration: none;
+	color: white;
+}

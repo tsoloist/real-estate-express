@@ -1,0 +1,32 @@
+header {
+    height: 100%;
+    position: relative;
+    top: -75px;
+}
+#hero1 {
+  height: 69%;
+  background-image: url(../images/atlanta-skyline-credit-pana-vasquez.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.info{
+  width: 61%;
+  margin:auto;
+  padding-top: 100px;
+}
+.info button {
+  background-repeat: no-repeat;
+  background-position: 3px center;
+  background-size: 40px 40px;
+}
+#hero2 {
+  height: 31%;
+  text-align: center;
+}
+#Featured {
+  background-color: #cdbb9e;
+  padding: 50px 0;
+  text-align: center;
+}
