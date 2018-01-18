@@ -33,19 +33,20 @@ var Property = sequelize.define('property', {
 });
 sequelize.sync({
     force: true
-}).then(() => Property.bulkCreate([
-    {streetaddress: '123 Peachtree', city: 'Atlanta', state: 'ga', zipcode:30307, price: 356000, bedrooms: 4, baths:4, sqfootage: 6000, featured: true},
-    {streetaddress: '456 Piedmont', city: 'Atlanta', state: 'ga', zipcode:30308, price: 870000, bedrooms: 7, baths:6.5, sqfootage: 10600, featured: true},
-    {streetaddress: '789 North Druid Hills', city: 'Atlanta', state: 'ga', zipcode:30309, price:550000, bedrooms: 6, baths:5, sqfootage: 9741, featured: true}
-]).then(
-    Property.findAll({
-        attributes: ['streetaddress', 'city', 'state', 'price', 'bedrooms', 'baths']
-    })
-)
-);
+}).then(() => {
+    Property.bulkCreate([
+        {streetaddress: '123 Peachtree', city: 'Atlanta', state: 'ga', zipcode:30307, price: 356000, bedrooms: 4, baths:4, sqfootage: 6000, featured: true},
+        {streetaddress: '456 Piedmont', city: 'Atlanta', state: 'ga', zipcode:30308, price: 870000, bedrooms: 7, baths:6.5, sqfootage: 10600, featured: true},
+        {streetaddress: '789 North Druid Hills', city: 'Atlanta', state: 'ga', zipcode:30309, price:550000, bedrooms: 6, baths:5, sqfootage: 9741, featured: true}
+    ])
+});
 
 app.get('/api/properties', (req, res ) => {
-    res.json();
+    Property.findAll({
+        attributes: ['streetaddress', 'city', 'state', 'price', 'bedrooms', 'baths']
+    }).then((list) => {
+        res.json(list);
+    })
  });
 
 const port = 5000;
