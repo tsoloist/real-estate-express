@@ -1,5 +1,19 @@
+#Featured h1 {
+	color: white;
+	margin-top: 80px;
+}
+.ListCarousel {
+	width: 80%;
+	margin: 0 auto;
+}
 .FeaturedSlide {
-	display: inline-block;
-	margin-right: 30px;
 	background-color: white;
+	max-width: 370px;
+	margin-right: 36px;
+}
+.FeaturedSlide:last-child {
+	margin-right: 0;
+}
+.slick-list {
+	height: 292px;
 }

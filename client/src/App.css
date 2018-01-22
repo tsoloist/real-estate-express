@@ -1,3 +1,6 @@
 #root, .App {
   height: 100%;
 }
+.NavBg {
+  background-color:#02254B;
+}

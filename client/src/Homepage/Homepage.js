@@ -5,6 +5,7 @@ import ContactImg from '../images/contact.png';
 import LoyaltyImg from '../images/loyalty.png';
 import WalletImg from '../images/wallet.png';
 import FeaturedListingSlider from '../FeaturedListingSlider/FeaturedListingSlider';
+import Footer from '../Footer/Footer';
 
 
 class Homepage extends Component {
@@ -20,6 +21,7 @@ class Homepage extends Component {
 		const walletStyle = {
 			backgroundImage: "url(" + WalletImg + ")"
 		}
+
 		return (
 			<div className="App">
 				<header>
@@ -43,8 +45,9 @@ class Homepage extends Component {
 				</header>
 				<section id="Featured">
 					<h1>Featured Listings</h1>
-					<FeaturedListingSlider /><FeaturedListingSlider />
+					<FeaturedListingSlider />
 				</section>
+				<Footer />
 			</div> 
 		);		
 	}

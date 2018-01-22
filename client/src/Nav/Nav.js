@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const nav = () => {
 	return(
 		<div className="Nav">
-			<img src={Logo} />
+			<a href="/"><img src={Logo} /></a>
 			<ul>
 				<li><Link to="/investors">Investors</Link></li>
 				<li><Link to="/homebuysell">Home Buyers/Sellers</Link></li>
