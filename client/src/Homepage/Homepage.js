@@ -5,7 +5,8 @@ import ContactImg from '../images/contact.png';
 import LoyaltyImg from '../images/loyalty.png';
 import WalletImg from '../images/wallet.png';
 import FeaturedListingSlider from '../FeaturedListingSlider/FeaturedListingSlider';
-import Footer from '../Footer/Footer';
+import Aux from '../hoc/Auxilary';
+
 
 
 class Homepage extends Component {
@@ -23,7 +24,7 @@ class Homepage extends Component {
 		}
 
 		return (
-			<div className="App">
+		<Aux>
 				<header>
 				  <section id="hero1">
 				    <div className="info">
@@ -47,8 +48,7 @@ class Homepage extends Component {
 					<h1>Featured Listings</h1>
 					<FeaturedListingSlider />
 				</section>
-				<Footer />
-			</div> 
+			</Aux>
 		);		
 	}
 		
