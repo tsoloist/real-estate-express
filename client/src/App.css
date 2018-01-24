@@ -4,3 +4,7 @@
 .NavBg {
   background-color:#02254B;
 }
+section.InternalPage {
+  width: 61%;
+  margin: 0 auto;
+}
