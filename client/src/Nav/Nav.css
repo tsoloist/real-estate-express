@@ -11,7 +11,7 @@
 
 .Nav ul {
 	list-style: none;
-	margin: 0;
+	margin: 15px 0 0 0;
 	padding: 0;
 	position: absolute;
 	right: 0;
@@ -19,16 +19,23 @@
 }
 .Nav li {
 	display: inline-block;
-	margin-left: 27px;
+	margin-left: 24px;
+	letter-spacing: .0325em;
 }
 .Nav li:first-child {
 	margin-left: none;
 }
-.Nav .login {
+.Nav .Login {
 	margin-left: 95px;
+	text-transform: uppercase;
 }
 
 .Nav li a {
 	text-decoration: none;
 	color: white;
+	padding: 0 3px;
+}
+.Nav li a:hover {
+	background-color: #cb100d;
+	padding: 0 3px;
 }

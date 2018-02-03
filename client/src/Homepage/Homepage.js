@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './Homepage.css';
 import InfoCard from './InfoCard/InfoCard.js';
-import ContactImg from '../images/contact.png';
-import LoyaltyImg from '../images/loyalty.png';
-import WalletImg from '../images/wallet.png';
+import ContactImg from '../assets/images/contact.png';
+import LoyaltyImg from '../assets/images/loyalty.png';
+import WalletImg from '../assets/images/wallet.png';
 import FeaturedListingSlider from '../FeaturedListingSlider/FeaturedListingSlider';
 import Aux from '../hoc/Auxilary';
 
@@ -27,6 +27,7 @@ class Homepage extends Component {
 		<Aux>
 				<header>
 				  <section id="hero1">
+					<div id="overlay"></div>
 				    <div className="info">
 					      <InfoCard style={contactStyle} title="Contact Me">
 					        	<p>Lenore Smith<br />Cell: 999-999-9999<br />address@address.com</p>
@@ -40,7 +41,7 @@ class Homepage extends Component {
 				    </div>
 				  </section>
 				  <section id="hero2">
-				    <h1 className="App-title"><span>Welcome. I'm Lenore Smith</span><br />Atlanta's Investment Property Specialist</h1>
+				    <h1>Welcome. I'm Lenore Smith<br /><span>Atlanta's Investment Property Specialist</span></h1>
 				    <h2>Get access to exclusive unlisted properties in Atlanta and surrounding areas</h2>
 				  </section>
 				</header>

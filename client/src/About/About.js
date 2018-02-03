@@ -1,8 +1,13 @@
 import React from 'react';
 import Internal from '../Layout/InternalPages';
+import InternalBanner from '../Layout/InternalBanner';
+import '../assets/images/midtown.jpg';
+import Aux from '../hoc/Auxilary';
 
 const about = () => {
 	return (
+		<Aux>
+		<InternalBanner path="/images/midtown.jpg" />
 		<Internal>
 			<h1>About Me</h1>
 			<p>Just let your mind wander and enjoy. This should make you happy. If what you're doing doesn't make you happy - you're doing the wrong thing. Just make little strokes like that. The least little bit can do so much. La- da- da- da- dah. Just be happy.</p>
@@ -13,7 +18,7 @@ const about = () => {
 			<p>Every single thing in the world has its own personality - and it is up to you to make friends with the little rascals. We're not trying to teach you a thing to copy. We're just here to teach you a technique, then let you loose into the world. God gave you this gift of imagination. Use it. Look around, look at what we have. Beauty is everywhere, you only have to look to see it. Everyone needs a friend. Friends are the most valuable things in the world.</p>
 			<p>I really recommend you use odorless thinner or your spouse is gonna run you right out into the yard and you'll be working by yourself. Just beat the devil out of it. The shadows are just like the highlights, but we're going in the opposite direction.</p>
 			<p>Let's have a little bit of fun today. If you don't like it - change it. It's your world. In this world, everything can be happy. Don't hurry. Take your time and enjoy. Nothing wrong with washing your brush. You can work and carry-on and put lots of little happy things in here.</p>
-		</Internal>
+		</Internal></Aux>
 	);
 }
 export default about;

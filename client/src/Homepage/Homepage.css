@@ -1,16 +1,23 @@
 header {
     height: 727px;
     position: relative;
-    top: -75px;
+    top: -95px;
 }
 #hero1 {
   height: 69%;
-  background-image: url(../images/atlanta-skyline-credit-pana-vasquez.jpg);
+  background-image: url(../assets/images/atlanta-skyline-credit-pana-vasquez.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 
+}
+#overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: rgba(255,255,255,.075);
+  width: 100%;
 }
 .info{
   width: 61%;
@@ -21,18 +28,40 @@ header {
   background-repeat: no-repeat;
   background-position: 3px center;
   background-size: 40px 40px;
+  color: #003567;
+  font-weight: 900;
+  font-family: Muli, sans-serif;
+  font-size: 15.5px;
+  cursor:pointer;
 }
 #hero2 {
   height: 31%;
   text-align: center;
 }
+#hero2 h1 {
+	font-weight: 900;
+  font-size: 32px;
+  line-height: 1.25em;
+  margin-bottom: 0;
+}
+#hero2 h1 span {
+  font-family: Muli, sans-serif;
+	font-size: 32px;
+}
+#hero2 h2 {
+  font-family: Muli, sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: #737980;
+  margin: 0;
+  line-height: 1.77em;
+}
 #Featured {
-
   background-color: #F40503;
-  background-image: url(../images/shattered-dark.png);
+  background-image: url(../assets/images/shattered-dark.png);
   background-size: auto;
   padding: 50px 0;
   text-align: center;
-  margin-top: -100px;
+  margin-top: -150px;
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }

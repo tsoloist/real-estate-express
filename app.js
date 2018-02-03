@@ -20,33 +20,42 @@ var Property = sequelize.define('property', {
     streetaddress: Sequelize.STRING,
     city: Sequelize.STRING,
     state: Sequelize.STRING,
-    zipcode: Sequelize.SMALLINT,
+    zipcode: Sequelize.INTEGER,
     price: Sequelize.INTEGER,
-    bedrooms: Sequelize.SMALLINT,
-    baths: Sequelize.SMALLINT,
-    sqfootage: Sequelize.SMALLINT,
+    bedrooms: Sequelize.INTEGER,
+    baths: Sequelize.INTEGER,
+    sqfootage: Sequelize.INTEGER,
     imgurl: Sequelize.TEXT,
     featured: Sequelize.BOOLEAN
 },
 {
     freezeTableName: true
 });
-sequelize.sync({
-    force: true
-}).then(() => {
-    Property.bulkCreate([
-        {streetaddress: '123 Peachtree', city: 'Atlanta', state: 'ga', zipcode:30307, price: 356000, bedrooms: 4, baths:4, sqfootage: 6000, imgurl: 'http://via.placeholder.com/370x187', featured: true},
-        {streetaddress: '456 Piedmont', city: 'Atlanta', state: 'ga', zipcode:30308, price: 870000, bedrooms: 7, baths:6.5, sqfootage: 10600, imgurl: 'http://via.placeholder.com/370x187', featured: true},
-        {streetaddress: '789 North Druid Hills', city: 'Atlanta', state: 'ga', zipcode:30309, price:550000, bedrooms: 6, baths:5, sqfootage: 9741, imgurl: 'http://via.placeholder.com/370x187', featured: true},
-        {streetaddress: '1001 Brookstone', city: 'Decatur', state: 'ga', zipcode:30309, price:550000, bedrooms: 6, baths:5, sqfootage: 9741, imgurl: 'http://via.placeholder.com/370x187', featured: true},
-        {streetaddress: '453 Freedom Parkway', city: 'Atlanta', state: 'ga', zipcode:30309, price:550000, bedrooms: 6, baths:5, sqfootage: 9741, imgurl: 'http://via.placeholder.com/370x187', featured: false}
-    ])
+sequelize.sync().then(() => {
+    console.log("Table created.")
 });
 
 app.get('/api/properties', (req, res ) => {
     Property.findAll({
         attributes: ['id', 'streetaddress', 'city', 'state', 'price', 'bedrooms', 'baths', 'imgurl', 'featured'],
         where: {featured: true}
+    }).then((list) => {
+        res.json(list);
+    })
+ });
+
+ app.post('/api/properties', (req, res ) => {
+    console.log(req.body);
+    Property.create(
+        req.body
+    ).then((entry) => {
+        res.json(entry);
+    })
+ });
+
+ app.get('/api/viewpropertieslist', (req, res ) => {
+    Property.findAll({
+        attributes: ['streetaddress', 'city', 'state', 'zipcode', 'price', 'bedrooms', 'baths', 'imgurl'],
     }).then((list) => {
         res.json(list);
     })

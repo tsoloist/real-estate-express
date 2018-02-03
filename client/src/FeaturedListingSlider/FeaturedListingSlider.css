@@ -11,6 +11,10 @@
 	max-width: 370px;
 	margin-right: 36px;
 }
+.FeaturedSlide p {
+	line-height: 1em;
+	margin-bottom: 1em;
+}
 .FeaturedSlide:last-child {
 	margin-right: 0;
 }
