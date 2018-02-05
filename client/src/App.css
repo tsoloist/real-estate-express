@@ -98,7 +98,10 @@ input, select, textarea {
   display: block;
   margin-bottom: 25px;
 }
-
+.featured {
+  display: inline;
+  width:5%;
+}
 
 /* ============================================== 
 * BUTTONS
@@ -161,4 +164,6 @@ form input[type="button"].button-primary:focus {
 border-color: #cb100d !important; }
 form button {
     width: auto;
+    display: block;
+    margin: 50px auto;
 }

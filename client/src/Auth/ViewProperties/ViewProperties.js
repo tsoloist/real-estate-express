@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import InternalPages from '../Layout/InternalPages';
+import InternalPages from '../../Layout/InternalPages';
 import axios from 'axios';
 
 class ViewPropertiesList extends Component {

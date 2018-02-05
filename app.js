@@ -32,7 +32,18 @@ var Property = sequelize.define('property', {
     freezeTableName: true
 });
 sequelize.sync().then(() => {
-    console.log("Table created.")
+    console.log("Property table created.")
+});
+
+var User = sequelize.define('user', {
+    email: Sequelize.STRING,
+    password: Sequelize.STRING
+},
+{
+    freezeTableName: true
+});
+sequelize.sync().then(() => {
+    console.log("User table create.");
 });
 
 app.get('/api/properties', (req, res ) => {
@@ -58,6 +69,15 @@ app.get('/api/properties', (req, res ) => {
         attributes: ['streetaddress', 'city', 'state', 'zipcode', 'price', 'bedrooms', 'baths', 'imgurl'],
     }).then((list) => {
         res.json(list);
+    })
+ });
+
+ app.post('/api/login', (req, res) => {
+    console.log(req.body);
+    User.create(
+        req.body
+    ).then((credentials) => {
+        res.json(credentials);
     })
  });
 

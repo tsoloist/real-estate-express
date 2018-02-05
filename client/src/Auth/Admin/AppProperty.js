@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import Aux from '../hoc/Auxilary';
-import '../App.css';
-import InternalPages from '../Layout/InternalPages';
+import Aux from '../../hoc/Auxilary';
+import '../../App.css';
+import InternalPages from '../../Layout/InternalPages';
 import Axios from 'axios';
 
 class AddProperty extends Component {
     state ={propertiesList:[]};
     
     addPropertyHandler = (e) => {
-        console.log(e.target);
         Axios.post('/api/properties',{
             streetaddress: e.target.streetaddress.value,
             city: e.target.city.value,
@@ -57,8 +56,8 @@ class AddProperty extends Component {
                     <label htmlFor="upload">Upload Image</label>
                     <input id="upload" type="text" name="imgurl" />
         
-                    <label htmlFor="featured">Show on Homepage</label>
-                    <input id="featured" type="checkbox" name="featured" />
+                    <label className="featured" htmlFor="featured">Show on Homepage</label>
+                    <input id="featured" type="checkbox" name="featured" className="featured" />
         
                     <button type="submit" className="button-primary" value="addToPage">Add to Display Page</button>
                 </form>
