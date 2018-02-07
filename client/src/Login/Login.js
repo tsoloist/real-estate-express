@@ -30,7 +30,7 @@ class Login extends Component {
 				<form onSubmit={this.sendCredentialsHandler}>
 					<div className="form-group">
 						<label htmlFor="email">Email address</label>
-						<input type="email" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" />
+						<input type="text" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" />
 						<span className="formhelp">We'll never share your email with anyone else.</span>
 					</div>
 					<div className="form-group">
