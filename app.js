@@ -7,13 +7,31 @@ const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: false} ));
 app.use(cookieParser());
+
+passport.use(new LocalStrategy({
+        usernameField: 'email'
+    },
+    function(username, password, done) {
+      Users.findOne({ attributes: [username]}, function(err, user) {
+        if (err) { return done(err); }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }
+  ));
+
 
 
 const sequelize = new Sequelize('postgres://postgres:gimmeaword@localhost:5432/properties_db');
@@ -72,9 +90,7 @@ var Property = sequelize.define('property', {
     freezeTableName: true
 });
 
-sequelize.sync({
-    logging: console.log
-})
+sequelize.sync({force:true})
 .then(() => {
     console.log("Property table created.");
 })
@@ -95,26 +111,47 @@ var Users = sequelize.define('users', {
             }
         }     
     },
-    password: {
+    fname: {
         type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            len: {
-                args: [5, 100],
-                msg: 'Password must be more than 5 characters'
-            }
-        }
+        allowNull: false
+    },
+    lname: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    password: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    approved: {
+        type: Sequelize.BOOLEAN
     }
 },
 {
     freezeTableName: true
 });
 
-sequelize.sync({
-    logging: console.log
-})
+sequelize.sync({force: true})
 .then(() => {
     console.log("Users table created.");
+})
+.catch((error) => {
+    console.log(error);
+});
+
+var Roles = sequelize.define('roles', {
+    role: Sequelize.STRING
+},
+{
+    freezeTableName: true
+});
+
+sequelize.sync({force: true})
+.then(() => {
+    Roles.bulkCreate([
+        {role: 'admin'},
+        {role: 'user'}
+    ]);
 })
 .catch((error) => {
     console.log(error);
@@ -146,14 +183,16 @@ app.get('/api/properties', (req, res ) => {
         res.json(entry);
     })
  });
-
- app.post('/api/login', (req, res) => {
+ 
+ app.post('/api/register', (req, res) => {
     let email = req.body.email;
+    let fname = req.body.fname;
+    let lname = req.body.lname;
     var password = req.body.password;
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
             password = hash;
-            let credentialArray = {email: email, password: password};
+            let credentialArray = {email: email, fname: fname, lname: lname, password: password};
             console.log(req.body);
             console.log(credentialArray);
             Users.create(
@@ -164,6 +203,14 @@ app.get('/api/properties', (req, res ) => {
         });
     });
  });
+ 
+
+ app.post('/api/login',
+ passport.authenticate('local', { successRedirect: '/api/viewpropertieslist', failureRedirect: '/login'}),
+ function(req,res){
+    res.redirect('/api/viewpropertieslist');
+ }
+);
 
 const port = 5000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
